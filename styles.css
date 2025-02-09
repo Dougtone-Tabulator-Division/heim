@@ -1,0 +1,329 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Futura:wght@400;700&display=swap');
+
+:root {
+  --primary: #c0c0c0;
+  --secondary: #808080;
+  --background: #111111;
+  --text: #e0e0e0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+  font-family: 'Futura', sans-serif;
+  overflow-x: hidden;
+}
+
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyBAMAAADsEZWCAAAAGFBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVfJ/WAAAACHRSTlMzMzMzMzMzM85JBgUAAAABYktHRAH/Ai3eAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4QMPCAwx6K4yWQAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAkUlEQVQ4y2NgQAX8DIxAwMDIwMDIyMQEZTIxMTEyIDEZGZkYmRiRmUxMTEzMTIxITGYmJiZmZkYkJgsTExMzMyMSk4WJhYkRKs7CwszMCNUnwMDAwMQEZQoABRmhTEGgICOUKQQUZIQyhYGCjFCmCFCQEcoUBQoyQpliQEFGKFMcKMgIZUoABRmhTEmgIBwAAIj5FnYqOp7RAAAAAElFTkSuQmCC');
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+header {
+  padding: 2rem;
+  background: linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.7) 100%);
+  position: relative;
+  text-align: center;
+}
+
+.logo {
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.logo-text {
+  font-size: 36px;
+  font-weight: bold;
+  letter-spacing: 0.3em;
+  filter: drop-shadow(0 0 3px rgba(255,255,255,0.5));
+  text-transform: uppercase;
+}
+
+nav {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
+nav a {
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 1.2rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.glitch {
+  position: relative;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+}
+
+.glitch::before {
+  color: var(--secondary);
+  animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+}
+
+.glitch::after {
+  color: var(--primary);
+  animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
+}
+
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+.hero {
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  padding: 0 2rem;
+}
+
+#webgl-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  color: var(--primary);
+  text-shadow: 0 0 8px var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: var(--secondary);
+}
+
+.products {
+  padding: 3rem 1rem;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.product-card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.05) 100%);
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,255,157,0.1);
+}
+
+.product-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+  text-shadow: 0 0 5px rgba(192,192,192,0.3);
+}
+
+.product-card p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.product-card .price {
+  font-size: 1.2rem;
+  color: var(--secondary);
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(128,128,128,0.3);
+}
+
+.tech-specs {
+  padding: 3rem 1rem;
+  position: relative;
+  background: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='a' patternUnits='userSpaceOnUse' width='13' height='13'%3E%3Cpath d='M4 0H9L13 4V9L9 13H4L0 9V4L4 0Z' fill='%23808080' opacity='0.2'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='52' height='26' fill='url(%23a)'/%3E%3C/svg%3E");
+  overflow: hidden;
+}
+
+.tech-specs h2 {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.tech-specs ul {
+  max-width: 600px;
+  margin: 1.5rem auto;
+  list-style: none;
+}
+
+.tech-specs li {
+  padding: 0.8rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+footer {
+  padding: 1.5rem;
+  text-align: center;
+  background: rgba(0,0,0,0.3);
+  font-size: 0.85rem;
+}
+
+.warning {
+  color: var(--secondary);
+  font-style: italic;
+  margin-top: 0.8rem;
+}
+
+.company-info {
+  padding: 3rem 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.company-info h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.company-info p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.dougdirector {
+  margin-top: 2rem;
+}
+
+.dougdirector h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.hologram {
+  height: 120px;
+  margin-bottom: 0.8rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hologram::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  opacity: 0.2;
+  animation: hologram 10s infinite linear;
+  mix-blend-mode: color-dodge;
+}
+
+@keyframes hologram {
+  0% {
+    filter: hue-rotate(0deg);
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+    transform: translateY(0);
+  }
+}
+
+.terminal-link {
+  margin-top: 1.5rem;
+}
+
+.terminal-link a {
+  color: var(--secondary);
+  text-decoration: none;
+  font-family: 'VT323', monospace;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--secondary);
+}
+
+.terminal-link a:hover {
+  color: var(--text);
+  border-color: var(--text);
+  text-shadow: 0 0 5px var(--text);
+  box-shadow: 0 0 10px rgba(192,192,192,0.2);
+}
+
+.terminal-link a::before {
+  content: '>';
+  margin-right: 0.5rem;
+  display: inline-block;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
