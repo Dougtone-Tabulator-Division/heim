@@ -1,0 +1,36 @@
+.about-hero {
+  height: 40vh;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-content {
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+}
+
+.history, .mission, .locations {
+  margin-bottom: 4rem;
+}
+
+.history h2, .mission h2, .locations h2 {
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+.location-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  max-width: 300px;
+}
+
+.location-card h3 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}

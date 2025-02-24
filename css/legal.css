@@ -1,0 +1,32 @@
+.legal-content {
+  max-width: 800px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+}
+
+.legal-content h1 {
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+}
+
+.legal-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.legal-section h2 {
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+.legal-section h3 {
+  color: var(--primary-color);
+  margin: 2rem 0 1rem 0;
+}
+
+.legal-section p {
+  margin-bottom: 1rem;
+  line-height: 1.8;
+}
